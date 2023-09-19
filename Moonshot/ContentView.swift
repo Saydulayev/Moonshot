@@ -32,7 +32,7 @@ struct ContentView: View {
                                     .padding()
                                     .background(RoundedRectangle(cornerRadius: 30)
                                         .fill(.darkBackground))
-                                    .shadow(color: Color.white.opacity(0.3), radius: 3, x: 0, y: 0)
+                                    .shadow(color: Color.white.opacity(0.3), radius: 3, x: 5, y: 5)
                                     .padding()
                                 VStack {
                                     Text(mission.displayName)
@@ -47,9 +47,8 @@ struct ContentView: View {
                                 .background(.lightBackground)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.yellow)
+                                        .stroke(Color.cyan.opacity(0.5))
                                 )
-                                
                             }
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .overlay(
