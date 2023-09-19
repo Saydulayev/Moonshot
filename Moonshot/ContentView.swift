@@ -15,7 +15,7 @@ struct ContentView: View {
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
-
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -24,40 +24,49 @@ struct ContentView: View {
                         NavigationLink {
                             Text("Detail view")
                         } label: {
+                            VStack {
+                                Image(mission.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 100, height: 100)
+                                    .padding()
+                                    .background(RoundedRectangle(cornerRadius: 30)
+                                        .fill(.darkBackground))
+                                    .shadow(color: Color.white.opacity(0.3), radius: 3, x: 0, y: 0)
+                                    .padding()
                                 VStack {
-                                    Image(mission.image)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 100, height: 100)
-                                        .padding()
-                                    VStack {
-                                        Text(mission.displayName)
-                                            .font(.headline)
-                                            .foregroundColor(.white)
-                                        Text(mission.formattedLaunchDate)
-                                            .font(.caption)
-                                            .foregroundColor(.white.opacity(0.5))
-                                    }
-                                    .padding(.vertical)
-                                    .frame(maxWidth: .infinity)
-                                    .background(.lightBackground)
+                                    Text(mission.displayName)
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                    Text(mission.formattedLaunchDate)
+                                        .font(.caption)
+                                        .foregroundColor(.white.opacity(0.5))
                                 }
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .padding(.vertical)
+                                .frame(maxWidth: .infinity)
+                                .background(.lightBackground)
                                 .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.yellow)
+                                )
+                                
+                            }
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.lightBackground)
-                                )
-                            }
+                            )
                         }
                     }
-                .padding([.horizontal, .bottom])
                 }
+                .padding([.horizontal, .bottom])
+            }
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             .preferredColorScheme(.dark)
-            }
         }
     }
+}
 
 
 struct ContentView_Previews: PreviewProvider {
