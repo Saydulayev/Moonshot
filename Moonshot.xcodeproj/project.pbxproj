@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C04182122ABA0213002C818C /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04182112ABA0213002C818C /* AstronautView.swift */; };
+		C04182142ABA0F49002C818C /* AnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04182132ABA0F49002C818C /* AnimatedImage.swift */; };
+		C04182162ABA0FAB002C818C /* astronaut1.gif in Resources */ = {isa = PBXBuildFile; fileRef = C04182152ABA0FAB002C818C /* astronaut1.gif */; };
+		C04182192ABA1182002C818C /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = C04182182ABA1182002C818C /* SwiftyGif */; };
+		C04182212ABA1CF3002C818C /* moon.gif in Resources */ = {isa = PBXBuildFile; fileRef = C04182202ABA1CF3002C818C /* moon.gif */; };
 		C062C2C12AB9B88200B99796 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062C2C02AB9B88200B99796 /* MissionView.swift */; };
 		C0893E662AB5BA8300014954 /* MoonshotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0893E652AB5BA8300014954 /* MoonshotApp.swift */; };
 		C0893E682AB5BA8300014954 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0893E672AB5BA8300014954 /* ContentView.swift */; };
@@ -21,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C04182112ABA0213002C818C /* AstronautView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
+		C04182132ABA0F49002C818C /* AnimatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImage.swift; sourceTree = "<group>"; };
+		C04182152ABA0FAB002C818C /* astronaut1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = astronaut1.gif; sourceTree = "<group>"; };
+		C04182202ABA1CF3002C818C /* moon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = moon.gif; sourceTree = "<group>"; };
 		C062C2C02AB9B88200B99796 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
 		C0893E622AB5BA8300014954 /* Moonshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonshot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0893E652AB5BA8300014954 /* MoonshotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonshotApp.swift; sourceTree = "<group>"; };
@@ -40,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04182192ABA1182002C818C /* SwiftyGif in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,10 +78,14 @@
 				C0893E652AB5BA8300014954 /* MoonshotApp.swift */,
 				C0893E672AB5BA8300014954 /* ContentView.swift */,
 				C062C2C02AB9B88200B99796 /* MissionView.swift */,
+				C04182112ABA0213002C818C /* AstronautView.swift */,
+				C04182132ABA0F49002C818C /* AnimatedImage.swift */,
 				C0FF8DDA2AB8618D00F550DB /* Color-Theme.swift */,
 				C0FF8DD82AB856E400F550DB /* Mission.swift */,
 				C0FF8DD42AB84F9C00F550DB /* Astronaut.swift */,
 				C0FF8DD62AB8503100F550DB /* Bundle-Decodable.swift */,
+				C04182202ABA1CF3002C818C /* moon.gif */,
+				C04182152ABA0FAB002C818C /* astronaut1.gif */,
 				C0FF8DD12AB84EE800F550DB /* astronauts.json */,
 				C0FF8DD02AB84EE800F550DB /* missions.json */,
 				C0893E692AB5BA8400014954 /* Assets.xcassets */,
@@ -104,6 +118,9 @@
 			dependencies = (
 			);
 			name = Moonshot;
+			packageProductDependencies = (
+				C04182182ABA1182002C818C /* SwiftyGif */,
+			);
 			productName = Moonshot;
 			productReference = C0893E622AB5BA8300014954 /* Moonshot.app */;
 			productType = "com.apple.product-type.application";
@@ -132,6 +149,9 @@
 				Base,
 			);
 			mainGroup = C0893E592AB5BA8300014954;
+			packageReferences = (
+				C04182172ABA1182002C818C /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+			);
 			productRefGroup = C0893E632AB5BA8300014954 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -147,9 +167,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0893E6D2AB5BA8400014954 /* Preview Assets.xcassets in Resources */,
+				C04182212ABA1CF3002C818C /* moon.gif in Resources */,
 				C0FF8DD22AB84EE800F550DB /* missions.json in Resources */,
 				C0893E6A2AB5BA8400014954 /* Assets.xcassets in Resources */,
 				C0FF8DD32AB84EE800F550DB /* astronauts.json in Resources */,
+				C04182162ABA0FAB002C818C /* astronaut1.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,8 +184,10 @@
 			files = (
 				C062C2C12AB9B88200B99796 /* MissionView.swift in Sources */,
 				C0FF8DD52AB84F9C00F550DB /* Astronaut.swift in Sources */,
+				C04182142ABA0F49002C818C /* AnimatedImage.swift in Sources */,
 				C0FF8DDB2AB8618D00F550DB /* Color-Theme.swift in Sources */,
 				C0893E682AB5BA8300014954 /* ContentView.swift in Sources */,
+				C04182122ABA0213002C818C /* AstronautView.swift in Sources */,
 				C0893E662AB5BA8300014954 /* MoonshotApp.swift in Sources */,
 				C0FF8DD92AB856E400F550DB /* Mission.swift in Sources */,
 				C0FF8DD72AB8503100F550DB /* Bundle-Decodable.swift in Sources */,
@@ -369,6 +393,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C04182172ABA1182002C818C /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C04182182ABA1182002C818C /* SwiftyGif */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C04182172ABA1182002C818C /* XCRemoteSwiftPackageReference "SwiftyGif" */;
+			productName = SwiftyGif;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C0893E5A2AB5BA8300014954 /* Project object */;
 }
