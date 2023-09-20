@@ -1,4 +1,12 @@
+#### Preview
 
+<table border=0>
+    <tr>
+        <td>
+            <image src=https://github.com/Saydulayev/Moonshot/blob/main/Moonshot/Gif/moonshot.gif width=230 align=center>
+        </td>
+    </tr>
+</table>
 
 # Moonshot 🚀
 
@@ -6,7 +14,6 @@
 
 The Moonshot App is a SwiftUI-based iOS application that showcases information about various space missions and astronauts. Utilizing a clean and intuitive UI, the app provides a list of missions, each coupled with an image and relevant details like the mission name and launch date.
 
-![App Screenshot](screenshot-link-here) (Coming Soon).
 
 ## Features
 
@@ -40,7 +47,7 @@ cd moonshot-app open MoonshotApp.xcodeproj
 ## Usage
 
 1. Open the app and browse through a list of missions.
-2. Click on any mission to navigate to its detail view (Coming Soon).
+2. Click on any mission to navigate to its detail view.
 
 ## Upcoming Features
 
