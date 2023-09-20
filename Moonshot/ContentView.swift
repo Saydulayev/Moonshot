@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showSplash = true
-    @State private var isGridView = true // New state variable for toggling between grid and list
+    @State private var isGridView = true
     
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
@@ -34,7 +34,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .toolbar { // New toolbar item to toggle the display
+                .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
                             withAnimation {
