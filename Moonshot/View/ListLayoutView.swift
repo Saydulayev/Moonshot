@@ -12,12 +12,11 @@ import SwiftUI
 struct ListLayout: View {
     let astronauts: [String: Astronaut]
     let missions: [Mission]
-    
+    @Binding var path: NavigationPath 
+
     var body: some View {
         List(missions) { mission in
-            NavigationLink {
-                MissionView(mission: mission, astronauts: astronauts)
-            } label: {
+            NavigationLink(value: mission) {
                 HStack(spacing: 16) {
                     Image(mission.image)
                         .missionImageViewStyle()
@@ -39,8 +38,12 @@ struct ListLayout: View {
             .listRowContainerStyle()
         }
         .listStyle(.plain)
+        .navigationDestination(for: Mission.self) { mission in
+            MissionView(mission: mission, astronauts: astronauts, path: $path)
+        }
     }
 }
+
 
 
 

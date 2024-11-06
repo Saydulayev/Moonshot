@@ -8,32 +8,28 @@
 import SwiftUI
 
 struct MissionView: View {
-    struct CrewMember {
+    struct CrewMember: Hashable {
         let role: String
         let astronaut: Astronaut
     }
     
     let mission: Mission
     let crew: [CrewMember]
-    
+    @Binding var path: NavigationPath
+
     var body: some View {
         ScrollView {
             VStack {
                 Image(mission.image)
                     .resizable()
                     .scaledToFit()
-                    .containerRelativeFrame(.horizontal) { width, axis in
-                        width * 0.6
-                    }
-                
-
+                    .frame(width: UIScreen.main.bounds.width * 0.6)
                 
                 VStack(alignment: .leading) {
                     Text("Date: \(mission.formattedLaunchDate)")
                         .font(.caption)
                         .foregroundStyle(.gray)
                         .padding(.bottom, -20)
-                    
                         .dividerLine()
                     
                     Text("Mission Highlights")
@@ -45,16 +41,13 @@ struct MissionView: View {
                     Text("Crew")
                         .font(.title.bold())
                         .padding(.bottom, 5)
-                    
                 }
                 .padding(.horizontal)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(crew, id: \.role) { crewMember in
-                            NavigationLink {
-                                AstronautView(astronaut: crewMember.astronaut)
-                            } label: {
+                        ForEach(crew, id: \.self) { crewMember in
+                            NavigationLink(value: crewMember.astronaut) {
                                 HStack {
                                     Image(crewMember.astronaut.id)
                                         .crewMemberImageStyle()
@@ -78,12 +71,12 @@ struct MissionView: View {
         }
         .navigationTitle(mission.displayName)
         .navigationBarTitleDisplayMode(.inline)
-        .background(.darkBackground)
+        .background(Color.darkBackground)
     }
     
-    init(mission: Mission, astronauts: [String: Astronaut]) {
+    init(mission: Mission, astronauts: [String: Astronaut], path: Binding<NavigationPath>) {
         self.mission = mission
-        
+        self._path = path 
         self.crew = mission.crew.map { member in
             if let astronaut = astronauts[member.name] {
                 return CrewMember(role: member.role, astronaut: astronaut)
@@ -98,9 +91,10 @@ struct MissionView: View {
     let missions: [Mission] = Bundle.main.decode("missions.json")
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     
-    return MissionView(mission: missions[5], astronauts: astronauts)
+    return MissionView(mission: missions[5], astronauts: astronauts, path: .constant(NavigationPath()))
         .preferredColorScheme(.dark)
 }
+
 
 
 

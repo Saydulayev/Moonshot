@@ -10,7 +10,8 @@ import SwiftUI
 struct GridLayout: View {
     let astronauts: [String: Astronaut]
     let missions: [Mission]
-    
+    @Binding var path: NavigationPath
+
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
@@ -19,9 +20,7 @@ struct GridLayout: View {
         ScrollView {
             LazyVGrid(columns: columns) {
                 ForEach(missions) { mission in
-                    NavigationLink {
-                        MissionView(mission: mission, astronauts: astronauts)
-                    } label: {
+                    NavigationLink(value: mission) {
                         VStack {
                             Image(mission.image)
                                 .missionImageStyle()
@@ -48,6 +47,9 @@ struct GridLayout: View {
                 }
             }
             .padding([.horizontal, .bottom])
+        }
+        .navigationDestination(for: Mission.self) { mission in
+            MissionView(mission: mission, astronauts: astronauts, path: $path) 
         }
     }
 }
