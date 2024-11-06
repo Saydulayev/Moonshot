@@ -49,7 +49,7 @@ struct GridLayout: View {
             .padding([.horizontal, .bottom])
         }
         .navigationDestination(for: Mission.self) { mission in
-            MissionView(mission: mission, astronauts: astronauts, path: $path) 
+            MissionView(mission: mission, astronauts: astronauts, path: $path)
         }
     }
 }

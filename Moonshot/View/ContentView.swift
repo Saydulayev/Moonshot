@@ -9,16 +9,16 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State private var path = NavigationPath() 
+    @State private var path = NavigationPath()
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     @State private var showingGrid = true
-    
+
     var body: some View {
         NavigationStack(path: $path) {
             Group {
                 if showingGrid {
-                    GridLayout(astronauts: astronauts, missions: missions, path: $path) 
+                    GridLayout(astronauts: astronauts, missions: missions, path: $path)
                 } else {
                     ListLayout(astronauts: astronauts, missions: missions, path: $path)
                 }
@@ -35,12 +35,6 @@ struct ContentView: View {
             .navigationTitle("Moonshot")
             .background(Color.darkBackground)
             .preferredColorScheme(.dark)
-            .navigationDestination(for: Mission.self) { mission in
-                MissionView(mission: mission, astronauts: astronauts, path: $path)
-            }
-            .navigationDestination(for: Astronaut.self) { astronaut in
-                AstronautView(astronaut: astronaut, path: $path)
-            }
         }
     }
 }

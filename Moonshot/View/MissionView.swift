@@ -72,11 +72,14 @@ struct MissionView: View {
         .navigationTitle(mission.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .background(Color.darkBackground)
+        .navigationDestination(for: Astronaut.self) { astronaut in
+            AstronautView(astronaut: astronaut, path: $path) 
+        }
     }
     
     init(mission: Mission, astronauts: [String: Astronaut], path: Binding<NavigationPath>) {
         self.mission = mission
-        self._path = path 
+        self._path = path
         self.crew = mission.crew.map { member in
             if let astronaut = astronauts[member.name] {
                 return CrewMember(role: member.role, astronaut: astronaut)

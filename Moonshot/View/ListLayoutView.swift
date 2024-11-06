@@ -12,7 +12,7 @@ import SwiftUI
 struct ListLayout: View {
     let astronauts: [String: Astronaut]
     let missions: [Mission]
-    @Binding var path: NavigationPath 
+    @Binding var path: NavigationPath
 
     var body: some View {
         List(missions) { mission in
